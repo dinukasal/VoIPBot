@@ -58,29 +58,29 @@ class BingSpeech():
 			break
 		return data
 
-	endpoint = "https://speech.platform.bing.com/recognize/query?{0}".format(urlencode({
-            "version": "3.0",
-            "requestid": uuid.uuid4(),
-            "appID": "D4D52672-91D7-4C74-8AD8-42B1D98141A5",
-            "format": "json",
-            "locale": "en-US",
-            "device.os": "linux",
-            "scenarios": "ulm",
-            "instanceid": uuid.uuid4(),
-            "result.profanitymarkup": "0"
-        }))
+        endpoint = "https://speech.platform.bing.com/recognize/query?{0}".format(urlencode({
+                "version": "3.0",
+                "requestid": uuid.uuid4(),
+                "appID": "D4D52672-91D7-4C74-8AD8-42B1D98141A5",
+                "format": "json",
+                "locale": "en-US",
+                "device.os": "linux",
+                "scenarios": "ulm",
+                "instanceid": uuid.uuid4(),
+                "result.profanitymarkup": "0"
+            }))
 
         headers = {'Authorization': 'Bearer ' + self.token,
-		   'Content-Type': content_type}
+            'Content-Type': content_type}
 
         resp = requests.post(endpoint,
-                            data=stream_audio_file(speech_file),
-			                stream=True,
-                            headers=headers)
+                                data=stream_audio_file(speech_file),
+                                stream=True,
+                                headers=headers)
 
-    val = json.loads(resp.text)
-    # Return user utterance in text
-    return val["results"][0]["name"]
+        val = json.loads(resp.text)
+        # Return user utterance in text
+        return val["results"][0]["name"]
 
 if __name__ == "__main__":
     ms_asr = BingSpeech()

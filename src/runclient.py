@@ -68,9 +68,9 @@ def listen_and_respond():
     # Connect the audio player to the call
     lib.conf_connect(playerslot,call_slot)
 
-	# Wait for the thing to be read for a few seconds then hang up
-	time.sleep(13)
-	current_call.hangup()
+    # Wait for the thing to be read for a few seconds then hang up
+    time.sleep(13)
+    current_call.hangup()
 
 class MyCallCallback(pj.CallCallback):
 
@@ -149,10 +149,10 @@ try:
 
 	if input == "h":
 	    if not current_call:
-		print "There is no call"
-		continue
+		    print "There is no call"
+		    continue
 	    current_call.hangup()
-		resetAll()
+	    resetAll()
 
 	elif input == "q":
 	    break

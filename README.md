@@ -31,9 +31,9 @@ There are 2 steps to this: 1. Building pjsip libraries (this has to be done in a
 Run the following commands to download and build both pjsip and its python modules (thanks to [this](http://stackoverflow.com/a/30768314) helpful stack overflow answer):
 
 ```bash
-wget "http://www.pjsip.org/release/2.6/pjproject-2.6.tar.bz2"
+wget https://github.com/pjsip/pjproject/archive/2.10.tar.gz -O pjproject-2.10.tar.gz
 sudo apt-get install build-essential python-dev
-tar -xf pjproject-2.6.tar.bz2 && cd pjproject-2.6/
+tar -xf pjproject-2.10.tar.gz && cd pjproject-2.10/
 export CFLAGS="$CFLAGS -fPIC"
 ./configure && make dep && make
 cd pjsip-apps/src/python/
